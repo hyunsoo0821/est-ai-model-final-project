@@ -1,0 +1,41 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js
+.next/
+out/
+
+# Build
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Env
+.env
+.env.local
+.env.development
+.env.production
+*.env
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+
+# Lockfiles
+*.pid
+node_modules
+node_modules
+
+
+node_modules/
+.next/

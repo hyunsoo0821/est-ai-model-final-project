@@ -1,0 +1,88 @@
+/* 전체 화면 */
+.home-wrapper {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: #e9fcff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+/* 🔥 화면을 꽤 많이 차지하는 큰 카드 */
+.home-card {
+  background: #ffffff;
+
+  width: 90%;                
+  height: 80%;           
+
+  padding: 80px 200px;         /* 여백 넉넉히 */
+  border-radius: 30px;
+
+  border: 5px solid #67d4ff;
+  box-shadow: 0px 12px 0px #b8f1ff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;     /* 내부를 Y축 가운데 */
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* 제목 – 더 크게! */
+.home-title {
+  font-size: 60px;
+  font-weight: 800;
+  color: #194b72;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+/* 버튼 그룹 – 버튼도 엄청 크게 */
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 60%;                 /* 버튼 폭도 크게 */
+}
+
+/* 공통 버튼 */
+.game-btn {
+  width: 100%;
+  padding: 22px 28px;         /* 버튼 크기 업 */
+  border-radius: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: transform 0.1s ease, background 0.1s ease;
+  border: none;
+  box-sizing: border-box;
+}
+
+/* 시작 버튼 */
+.game-btn.primary {
+  background: #2d4057;
+  color: white;
+  box-shadow: 0px 6px 0px #1f2f40;
+}
+.game-btn.primary:hover {
+  background: #344a62;
+  transform: translateY(-3px);
+}
+
+/* 도움말 버튼 */
+.game-btn.secondary {
+  background: #ffffff;
+  border: 3px solid #2d4057;
+  color: #2d4057;
+  box-shadow: 0px 6px 0px #cad7e2;
+}
+.game-btn.secondary:hover {
+  background: #f1faff;
+  transform: translateY(-3px);
+}

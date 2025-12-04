@@ -1,0 +1,133 @@
+/* 전체 컨테이너 스타일 */
+.recommendation-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 헤더 박스 스타일 */
+.header-box {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 20px;
+}
+
+.title {
+  margin: 0;
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 8px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* 리스트 스타일 */
+.video-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 카드 아이템 스타일 */
+.video-card {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 15px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 번호 스타일 */
+.video-number {
+  background-color: #ff5252;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+/* 정보 영역 스타일 */
+.video-info {
+  flex-grow: 1;
+  padding-right: 15px;
+}
+
+.video-title {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-decoration: none;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.video-title:hover {
+  color: #3498db;
+}
+
+.video-channel {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* 재생 버튼 스타일 */
+.play-button {
+  background-color: #f1f1f1;
+  color: #555;
+  padding: 8px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.video-card:hover .play-button {
+  background-color: #ff0000;
+  color: white;
+}
+
+/* 모바일 반응형 처리 */
+@media (max-width: 600px) {
+  .video-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .video-number {
+    margin-bottom: 10px;
+  }
+  
+  .play-button {
+    margin-top: 15px;
+    align-self: flex-end;
+  }
+}

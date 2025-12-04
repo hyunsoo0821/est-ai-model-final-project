@@ -1,0 +1,116 @@
+.fail-wrapper {
+  /* 배경을 어두운 계열의 차분한 색상으로 변경하여 실패 분위기 연출 */
+  text-align: center;
+  padding: 60px 20px;
+  background: #2c3e50; /* 어두운 청회색 */
+  min-height: 100vh;
+  color: #ecf0f1; /* 텍스트 색상을 밝게 */
+}
+
+.fail-wrapper h1 {
+  /* '아웃!' 제목 강조 */
+  font-size: 48px;
+  color: #e74c3c; /* 경고를 뜻하는 빨간색 */
+  margin-bottom: 10px;
+  font-weight: 900;
+  text-shadow: 0 0 10px rgba(231, 76, 60, 0.7);
+}
+
+.fail-wrapper p {
+  /* 닉네임님, 웃음을 참지 못했습니다! */
+  font-size: 22px;
+  margin-bottom: 30px;
+  color: #bdc3c7;
+}
+
+.fail-wrapper h2 {
+  /* 캡처 제목 */
+  font-size: 28px;
+  margin-top: 40px;
+  margin-bottom: 25px;
+  color: #f1c40f; /* 노란색으로 강조 */
+}
+
+/* --- 캡처 이미지 목록 --- */
+.photo-list {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* 여러 줄로 감싸기 */
+  gap: 30px; /* 간격 증가 */
+  margin-bottom: 50px;
+}
+
+.photo-item {
+  /* 캡처 이미지 액자 스타일 */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* 그림자 진하게 */
+  transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.photo-item img {
+  width: 250px; /* 크기 약간 확대 */
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  border: 4px solid #34495e; /* 프레임 색상 */
+}
+
+.photo-list p {
+  /* 캡처 없음 메시지 */
+  font-style: italic;
+  color: #95a5a6;
+  font-size: 18px;
+}
+
+/* --- 버튼 공통 스타일 --- */
+.hall-button,
+.lauther-btn {
+  width: 300px; /* 버튼 너비 통일 */
+  padding: 16px 24px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px; /* 둥근 모양 */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* --- 명예의 전당 버튼 --- */
+.hall-button {
+  background: #f1c40f; /* 노란색 */
+  color: #333;
+  margin-top: 30px;
+}
+
+.hall-button:hover {
+  background: #f39c12; /* 오렌지색 계열로 호버 */
+  transform: scale(1.03);
+}
+
+/* --- 추천 영상 버튼 --- */
+.lauther-btn {
+  /* 대비되는 색상으로 눈에 띄게 */
+  background: #3498db; /* 밝은 파란색 */
+  color: white;
+}
+
+.lauther-btn:hover {
+  background: #2980b9; /* 더 진한 파란색으로 호버 */
+  transform: scale(1.03);
+}
+
+.lauther-btn h1 {
+  /* 버튼 내부 텍스트 스타일 초기화 및 조정 */
+  font-size: 20px;
+  margin: 0;
+  color: white; /* 텍스트 색상 다시 흰색으로 설정 */
+  font-weight: bold;
+}

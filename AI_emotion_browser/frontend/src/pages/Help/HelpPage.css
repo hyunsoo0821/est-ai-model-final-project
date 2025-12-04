@@ -1,0 +1,82 @@
+/* 전체 페이지 배경 */
+.help-wrapper {
+    width: 100%;
+    min-height: calc(100vh - 64px);
+    background: #e9fcff;
+  
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  
+    padding-top: 80px;
+    box-sizing: border-box;
+  }
+  
+  /* 중앙 카드 */
+  .help-card {
+    width: 80%;
+    max-width: 1200px;
+    background: #ffffff;
+  
+    padding: 60px 80px;
+    border-radius: 30px;
+  
+    border: 5px solid #67d4ff;
+    box-shadow: 0px 12px 0px #b8f1ff;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  /* 페이지 제목 */
+  .help-title {
+    text-align: center;
+    font-size: 54px;
+    font-weight: 800;
+    color: #194b72;
+    margin: 0;
+  }
+  
+  /* 구역 */
+  .help-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .help-subtitle {
+    font-size: 32px;
+    font-weight: 700;
+    color: #255b86;
+    margin: 0;
+  }
+  
+  .help-list {
+    font-size: 22px;
+    line-height: 1.6;
+    padding-left: 20px;
+    list-style-type: "• ";
+    color: #2c4a5f;
+  }
+  
+  /* 반응형 */
+  @media (max-width: 768px) {
+    .help-card {
+      padding: 40px 30px;
+      width: 90%;
+    }
+  
+    .help-title {
+      font-size: 42px;
+    }
+  
+    .help-subtitle {
+      font-size: 26px;
+    }
+  
+    .help-list {
+      font-size: 18px;
+    }
+  }
+  

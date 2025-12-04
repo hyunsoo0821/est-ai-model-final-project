@@ -1,0 +1,4 @@
+#한번에 켜는 bash 스크립트 만들었습니다.
+# tmux 활용하였습니다.
+# cd /workspace/AI_emotion_browser
+# ./run_all.sh

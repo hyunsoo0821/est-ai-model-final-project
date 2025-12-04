@@ -1,0 +1,69 @@
+.perm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+    z-index: 999;
+  }
+  
+  .perm-modal {
+    background: white;
+    width: 90%;
+    max-width: 360px;
+    padding: 28px;
+    border-radius: 16px;
+    text-align: center;
+    animation: slideDown 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  
+  .perm-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    animation: floatIcon 2s infinite ease-in-out;
+  }
+  
+  .perm-desc {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .perm-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #1a3c6e;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .perm-btn:hover {
+    background: #244a8f;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  

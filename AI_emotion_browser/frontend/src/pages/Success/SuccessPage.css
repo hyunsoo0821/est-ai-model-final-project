@@ -1,0 +1,109 @@
+.success-wrapper {
+  /* 배경을 부드러운 그라데이션으로 변경하여 입체감을 줌 */
+  text-align: center;
+  padding: 80px 20px; /* 상하 여백 증가 */
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
+  min-height: 100vh;
+  display: flex; /* 요소 중앙 정렬을 위해 flexbox 사용 */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 상단에서 시작 */
+}
+
+.success-title {
+  /* 제목 강조 및 그림자 추가 */
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #3f51b5; /* 진한 파란색 계열로 변경 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: -1px;
+}
+
+.success-divider {
+  /* 멋진 구분선 스타일 */
+  width: 70%;
+  max-width: 400px;
+  border: 0;
+  height: 4px;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    #ffca28,
+    transparent
+  ); /* 노란색 그라데이션 구분선 */
+  margin: 20px 0;
+}
+
+.success-sub {
+  /* 핵심 내용 강조 */
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.success-sub strong {
+  /* 초상권 부분 더 강조 */
+  color: #d32f2f; /* 빨간색 계열 */
+  font-weight: 900;
+}
+
+.success-sub2 {
+  /* 부가적인 축하 메시지 */
+  font-size: 17px;
+  margin-bottom: 15px;
+  color: #777;
+  line-height: 1.6;
+}
+
+.success-sub2:last-of-type {
+  margin-bottom: 40px; /* 버튼과의 간격 확보 */
+}
+
+/* --- 버튼 공통 스타일 --- */
+.success-btn,
+.lauther-btn {
+  width: 250px;
+  padding: 16px 28px;
+  border: none;
+  border-radius: 30px; /* 둥근 버튼 */
+  cursor: pointer;
+  font-size: 19px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.success-btn {
+  /* 다시 도전하기 버튼 - 노란색 */
+  background: #ffca28;
+  color: #333;
+}
+
+.success-btn:hover {
+  background: #f5b821;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.lauther-btn {
+  /* 추천 영상 버튼 - 청록색으로 대비 */
+  background: #00bcd4;
+  color: white;
+  margin-top: 20px; /* 간격 추가 */
+}
+
+.lauther-btn:hover {
+  background: #00acc1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.lauther-btn h1 {
+  /* 버튼 내부 텍스트 스타일 초기화 및 조정 */
+  font-size: 19px;
+  margin: 0;
+  font-weight: bold;
+}

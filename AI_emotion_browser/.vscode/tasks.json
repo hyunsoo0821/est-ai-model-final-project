@@ -1,0 +1,42 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Frontend",
+        "type": "shell",
+        "command": "cd frontend && npm run dev",
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "presentation": {
+          "panel": "new"
+        }
+      },
+      {
+        "label": "Node Backend",
+        "type": "shell",
+        "command": "cd backend && node server.js",
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "presentation": {
+          "panel": "new"
+        }
+      },
+      {
+        "label": "AI Server",
+        "type": "shell",
+        "command": "cd AI_python && uvicorn fastapi_server:app --host 0.0.0.0 --port 8000",
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "presentation": {
+          "panel": "new"
+        }
+      }
+    ]
+  }
+  

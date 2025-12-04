@@ -1,0 +1,270 @@
+/* -------------------------------------------------------------
+    0. 기본
+------------------------------------------------------------- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* -------------------------------------------------------------
+    1. 전체 배경 (블루 심해 파도 애니메이션)
+------------------------------------------------------------- */
+.report-container {
+  position: relative !important; /* 가상 요소의 기준점 */
+  z-index: 1; /* 내용을 앞으로 */
+
+  /* 기존 background 스타일을 모두 제거합니다 (::before로 옮겼으므로) */
+  background: transparent !important; /* 투명하게 만들어 ::before가 보이도록 함 */
+  
+  min-height: 100vh !important; /* 전체 높이 유지 */
+  display: flex !important;
+  flex-direction: column !important;
+  /* ... 나머지 flex/padding 스타일 유지 ... */
+}
+
+.report-container::before {
+  content: "";
+  position: absolute; /* fixed 대신 absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* 부모의 100% 높이 (min-height: 100vh 덕분에 화면 전체) */
+  z-index: -1; /* 컨테이너 뒤로 */
+
+  background: linear-gradient(
+    -45deg,
+    #E0FFFF,
+    #00FFFF,
+    #87CEFA,
+    #1E90FF
+  );
+  background-size: 500% 500%;
+  animation: waveBG 14s ease-in-out infinite;
+}
+
+/* 파도 흐름 애니메이션 */
+@keyframes waveBG {
+  0%   { background-position: 0% 50%; }
+  25%  { background-position: 50% 100%; }
+  50%  { background-position: 100% 50%; }
+  75%  { background-position: 50% 0%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* -------------------------------------------------------------
+    2. 카드 공통 스타일
+------------------------------------------------------------- */
+.section {
+  width: 100%;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(6px);
+  border-radius: 28px;
+  padding: 48px;
+  margin: 24px 0;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+  animation: fadeInUp 0.7s ease-out forwards;
+  box-sizing: border-box;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* -------------------------------------------------------------
+    3. 헤더
+------------------------------------------------------------- */
+.header-section {
+  text-align: center;
+}
+
+.main-title {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 16px;
+  color: #111;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+
+/* -------------------------------------------------------------
+    4. 레이더 차트
+------------------------------------------------------------- */
+.radar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.radar-wrapper {
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.radar-center-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 26px;
+  font-weight: 900;
+  color: #FF6B6B;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 12px 22px;
+  border-radius: 14px;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+  pointer-events: none;
+}
+
+.radar-caption {
+  font-size: 19px;
+  text-align: center;
+  color: #333;
+  line-height: 1.6;
+}
+.radar-caption strong {
+  color: #FF6B6B;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+
+/* -------------------------------------------------------------
+    5. 세부 분석 텍스트
+------------------------------------------------------------- */
+.section-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 16px;
+  color: #222;
+}
+
+.summary-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.summary-item {
+  font-size: 17px;
+  background: #f9fafb;
+  padding: 18px 24px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  color: #333;
+  line-height: 1.65;
+}
+
+.laugh-count {
+  text-align: right;
+  font-size: 17px;
+  color: #555;
+  margin-top: 40px;
+}
+.laugh-count strong {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111;
+}
+
+.mbti-result {
+  text-align: center;
+  margin-top: 50px;
+}
+.mbti-result h3 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #111;
+}
+.mbti-result p {
+  font-size: 17px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.mbti-highlight {
+  margin-top: 50px;
+  background: #fff0f2;
+  color: #e11d48;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 600;
+  border: 2px solid #fecdd3;
+}
+.mbti-highlight .mbti {
+  display: block;
+  font-size: 32px;
+  font-weight: 900;
+  margin-top: 10px;
+  color: #be123c;
+}
+
+.no-data {
+  color: #888;
+}
+
+
+/* -------------------------------------------------------------
+    6. 태그 + 추천 버튼
+------------------------------------------------------------- */
+.recommend-section {
+  text-align: center;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.tag-item {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #444;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.recommend-btn {
+  width: 100%;
+  max-width: 450px;
+  padding: 22px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 18px;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 8px 20px rgba(118, 75, 162, 0.4);
+}
+.recommend-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(118, 75, 162, 0.5);
+}
+

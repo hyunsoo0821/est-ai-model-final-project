@@ -1,0 +1,234 @@
+/* 폰트: 귀엽고 통통 튀는 'Jua' 폰트 임포트 */
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/* =========================================================
+   1) 전체 페이지 스타일: 팝하고 생동감 있게
+   ========================================================= */
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Jua', sans-serif; /* 둥글둥글한 폰트 적용 */
+    position: relative;
+    background-color: #FFDEE9;
+    background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+    overflow-x: hidden;
+}
+
+/* 배경에 움직이는 패턴 추가 (물방울/콘페티 느낌) */
+.page::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+        radial-gradient(#ff6b6b 20%, transparent 20%),
+        radial-gradient(#feca57 20%, transparent 20%);
+    background-color: transparent;
+    background-position: 0 0, 50px 50px;
+    background-size: 100px 100px;
+    opacity: 0.1;
+    pointer-events: none;
+    animation: backgroundMove 20s linear infinite;
+}
+
+@keyframes backgroundMove {
+    0% { background-position: 0 0, 50px 50px; }
+    100% { background-position: 100px 100px, 150px 150px; }
+}
+
+/* =========================================================
+   2) 공통 섹션 및 타이틀
+   ========================================================= */
+section {
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.sub-title {
+    display: inline-block;
+    font-size: 32px;
+    color: #fff;
+    background: #ff6b6b;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: 3px solid #333;
+    box-shadow: 5px 5px 0px #333; /* 만화 같은 그림자 */
+    transform: rotate(-2deg); /* 살짝 기울여서 장난기 표현 */
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 0 #333;
+}
+
+/* =========================================================
+   3) 랭킹 리스트 (테이블 대체)
+   ========================================================= */
+.table-wrapper {
+    /* 기존 테이블 배경 제거하고 투명하게 */
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0 10px;
+}
+
+.ranking-table {
+    width: 100%;
+    border-collapse: separate; /* 셀 간격 분리 */
+    border-spacing: 0 15px; /* 행 사이 간격 */
+}
+
+.ranking-table thead {
+    display: none; /* 헤더 숨기고 카드형으로 전환 (원하면 살려도 됨) */
+}
+
+/* 각 랭킹 행을 카드처럼 디자인 */
+.ranking-table tbody tr {
+    background: #fff;
+    box-shadow: 0 4px 0 #ddd;
+    border-radius: 15px;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    border: 2px solid #333;
+}
+
+.ranking-table tbody tr:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 0 #333;
+    background: #fffcf0;
+    z-index: 10;
+}
+
+.ranking-table td {
+    padding: 20px;
+    font-size: 20px;
+    border: none;
+    color: #333;
+}
+
+/* 순위 숫자 스타일 */
+.ranking-table td:first-child {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    width: 80px;
+    text-align: center;
+    border-right: 2px dashed #eee;
+}
+
+/* 닉네임 */
+.ranking-table td:nth-child(2) {
+    text-align: left;
+    padding-left: 30px;
+    font-weight: 500;
+}
+
+/* 기록 시간 */
+.ranking-table td:last-child {
+    font-weight: bold;
+    color: #ff4757;
+    font-family: 'Courier New', monospace; /* 디지털 시계 느낌 */
+    font-weight: 900;
+    font-size: 22px;
+}
+
+/* 🥇🥈🥉 Top 3 스페셜 스타일 */
+.top-1 {
+    background: linear-gradient(45deg, #fff, #ffd700 30%, #fff) !important;
+    border: 3px solid #daa520 !important;
+    box-shadow: 0 6px 0 #b8860b !important;
+}
+.top-1 td:first-child { color: #d35400; text-shadow: 1px 1px 0 #fff; font-size: 30px; }
+
+.top-2 {
+    background: linear-gradient(45deg, #fff, #e0e0e0 30%, #fff) !important;
+    border: 3px solid #bdc3c7 !important;
+    box-shadow: 0 6px 0 #7f8c8d !important;
+}
+.top-2 td:first-child { color: #7f8c8d; font-size: 28px; }
+
+.top-3 {
+    background: linear-gradient(45deg, #fff, #f4c4a4 30%, #fff) !important;
+    border: 3px solid #d35400 !important;
+    box-shadow: 0 6px 0 #a04000 !important;
+}
+.top-3 td:first-child { color: #a04000; font-size: 26px; }
+
+
+/* =========================================================
+   4) 성향 분석 CTA 섹션 (버튼 강조)
+   ========================================================= */
+.insight-section {
+    background: #fff;
+    border: 4px solid #333;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 10px 10px 0 rgba(0,0,0,0.8);
+    transform: rotate(1deg);
+    margin-top: 50px;
+}
+
+.insight-desc {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.insight-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 22px;
+    font-family: 'Jua', sans-serif;
+    color: #fff;
+    background: #2ecc71;
+    border: 3px solid #333;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #006266;
+    transition: all 0.1s;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.insight-btn:hover {
+    background: #27ae60;
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 #006266;
+}
+
+.insight-btn:active {
+    transform: translateY(6px);
+    box-shadow: 0 0 0 #006266;
+}
+
+/* 버튼 안에 반짝이는 효과 */
+.insight-btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    100% { left: 100%; }
+}
+
+/* =========================================================
+   5) 모바일 반응형
+   ========================================================= */
+@media (max-width: 480px) {
+    .sub-title { font-size: 24px; padding: 8px 20px; }
+    
+    .ranking-table td { font-size: 16px; padding: 15px 10px; }
+    .ranking-table td:first-child { width: 50px; font-size: 18px; }
+    
+    .insight-section { padding: 25px; transform: rotate(0deg); box-shadow: 5px 5px 0 #333; }
+    .insight-btn { font-size: 18px; padding: 12px 30px; width: 100%; }
+}

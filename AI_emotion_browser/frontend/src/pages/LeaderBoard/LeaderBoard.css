@@ -1,0 +1,358 @@
+/* =============================
+   페이지 전체를 Grid로 중앙 정렬
+   ============================= */
+.page {
+    display: grid;
+    place-items: center;
+    /* ✅ 수평 + 수직 중앙 */
+    min-height: 100vh;
+    padding: 24px;
+    position: relative;
+    background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)) no-repeat,
+        linear-gradient(135deg, #fdf2f8 0%, #fff 40%, #e0f2fe 100%);
+}
+
+/* 은은한 빛망울 + 별반짝이 효과 */
+.page::before,
+.page::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.page::before {
+    background-image:
+        radial-gradient(16px 16px at 15% 20%, rgba(255, 182, 193, 0.45), transparent 70%),
+        radial-gradient(24px 24px at 80% 25%, rgba(147, 197, 253, 0.35), transparent 70%),
+        radial-gradient(20px 20px at 30% 80%, rgba(255, 214, 165, 0.35), transparent 70%);
+    opacity: 0.5;
+}
+
+.page::after {
+    background:
+        radial-gradient(2px 2px at 12% 30%, rgba(255, 255, 255, 0.9), transparent 45%),
+        radial-gradient(2px 2px at 88% 18%, rgba(255, 255, 255, 0.9), transparent 45%),
+        radial-gradient(2px 2px at 22% 86%, rgba(255, 255, 255, 0.9), transparent 45%),
+        radial-gradient(2px 2px at 72% 70%, rgba(255, 255, 255, 0.9), transparent 45%);
+    animation: sparkle 4s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translate3d(0, -1px, 0);
+        opacity: 0.9;
+    }
+}
+
+/* =============================
+   섹션 공통: 내부도 중앙 정렬
+   ============================= */
+.page>section {
+    display: grid;
+    gap: 32px;
+    /* 섹션 내부 요소 간격 */
+    justify-items: center;
+    /* 섹션 내부 가운데 정렬 */
+    width: 100%;
+}
+
+.sub-title {
+    margin: 0 0 12px;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.2px;
+    color: #9d174d;
+}
+
+/* =============================
+   포토부스 스트립
+   ============================= */
+.photo-section {
+    margin-bottom: 12px;
+}
+
+.photobooth-strip {
+    background: #fce7f3;
+    /* 핑크 */
+    border: 1px solid #f9a8d4;
+    border-radius: 16px;
+    padding: 18px;
+    max-width: 640px;
+    /* 조금 크게 */
+    width: 100%;
+    box-shadow:
+        0 10px 25px rgba(236, 72, 153, 0.15),
+        0 6px 12px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+    justify-self: center;
+    /* Grid에서 가운데 */
+}
+
+.photobooth-strip::before {
+    content: "";
+    position: absolute;
+    top: -35%;
+    left: -10%;
+    width: 130%;
+    height: 60%;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.55) 0%,
+            rgba(255, 255, 255, 0.15) 45%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: rotate(6deg);
+    filter: blur(0.6px);
+    pointer-events: none;
+}
+
+.strip-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+    color: #9d174d;
+    /* 진한 핑크 */
+    margin-bottom: 12px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.file-input {
+    padding: 8px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 14px;
+}
+
+.hint {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* 사진 그리드 */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    padding: 4px;
+    width: 100%;
+}
+
+.photo-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 8px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+.photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* 정사각 */
+    object-fit: cover;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.08),
+        inset 0 0 0 1px rgba(243, 244, 246, 1);
+}
+
+.photo-placeholder {
+    display: grid;
+    place-items: center;
+    min-height: 180px;
+    color: #9ca3af;
+    border: 1px dashed #d1d5db;
+    background: #fff;
+    border-radius: 12px;
+}
+
+/* =============================
+   금색 테마 테이블 (조금 크게)
+   ============================= */
+.ranking-section {
+    margin-top: 12px;
+}
+
+.table-wrapper {
+    max-width: 840px;
+    /* 테이블을 좀 더 크게 */
+    width: 100%;
+    margin: 0 auto;
+    background: #fffef2;
+    /* 아주 옅은 금빛 배경 */
+    border: 1px solid #f5deb3;
+    border-radius: 14px;
+    box-shadow:
+        0 10px 24px rgba(184, 134, 11, 0.12),
+        0 6px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    justify-self: center;
+    /* Grid에서 가운데 */
+}
+
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    /* 조금 크게 */
+}
+
+.ranking-table thead tr {
+    background: linear-gradient(135deg, #ffd700 0%, #f5c518 50%, #e6b800 100%);
+    color: #3b2900;
+}
+
+.ranking-table th,
+.ranking-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #f1e4b3;
+    text-align: left;
+}
+
+.ranking-table th.col-rank,
+.ranking-table td.col-rank {
+    width: 100px;
+}
+
+.ranking-table tbody tr {
+    background: #fffdfa;
+}
+
+.ranking-table tbody tr:nth-child(odd) {
+    background: #fff6da;
+    /* 금빛 얼룩 */
+}
+
+.ranking-table tbody tr:hover {
+    background: #ffefb0;
+    transition: background 180ms ease;
+}
+
+.medal {
+    margin-right: 8px;
+}
+
+.medal-1 {
+    color: #cfa300;
+}
+
+/* Gold */
+.medal-2 {
+    color: #a1a1a1;
+}
+
+/* Silver */
+.medal-3 {
+    color: #cd7f32;
+}
+
+/* Bronze */
+
+.top-1 td {
+    font-weight: 800;
+}
+
+.top-2 td {
+    font-weight: 700;
+}
+
+.top-3 td {
+    font-weight: 600;
+}
+
+.time-chip {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #fff3bf;
+    color: #3b2900;
+    border: 1px solid #f5c518;
+    font-weight: 600;
+}
+
+/* =============================
+   성향 분석 섹션
+   ============================= */
+   .insight-section {
+    margin-top: 40px;
+    text-align: center;
+    animation: fadeIn 0.7s ease;
+  }
+  
+  .insight-desc {
+    font-size: 15px;
+    color: #6b7280;
+    margin-bottom: 16px;
+  }
+  
+  .insight-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ffd700 0%, #f5c518 50%, #e6b800 100%);
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #3b2900;
+    box-shadow: 0 6px 14px rgba(184, 134, 11, 0.25);
+    transition: 0.2s ease;
+  }
+  
+  .insight-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #ffe36e 0%, #f9d342 50%, #e8bc1c 100%);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+
+
+
+/* =============================
+   반응형
+   ============================= */
+@media (max-width: 480px) {
+    .photobooth-strip {
+        padding: 14px;
+        border-radius: 14px;
+    }
+
+    .photo-grid {
+        gap: 10px;
+    }
+
+    .photo-card {
+        padding: 6px;
+    }
+
+    .ranking-table th,
+    .ranking-table td {
+        padding: 12px 12px;
+        font-size: 15px;
+    }
+
+    .table-wrapper {
+        border-radius: 12px;
+    }
+}
